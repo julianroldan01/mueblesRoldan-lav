@@ -37,9 +37,18 @@ Route::get('/eje3', function () {
 
 Route::resource('usuario', 'UsuarioController');
 */
-
 Route::get('/', function () {
-    return view("usuario.login");
+    return view('usuario.welcome');
 });
-Route::post('/login', "Controlador@index");
+Route::view('/inicio', 'usuario.inicio');
+Route::view('/registro', 'usuario.register');
+Route::view('/venta', 'usuario.venta');
+Route::view('/navegador', 'usuario.navegador');
+Route::view('/compra', 'usuario.compra');
+Auth::routes();
 
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
