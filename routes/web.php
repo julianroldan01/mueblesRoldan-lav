@@ -40,15 +40,13 @@ Route::resource('usuario', 'UsuarioController');
 Route::get('/', function () {
     return view('usuario.welcome');
 });
-Route::view('/inicio', 'usuario.inicio');
-Route::view('/registro', 'usuario.register');
-Route::view('/venta', 'usuario.venta');
-Route::view('/navegador', 'usuario.navegador');
-Route::view('/compra', 'usuario.compra');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
+Route::get('/ventas', function () {
+    return view('usuario.venta');
+});
+Route::resource('/closet', 'UsuariosController');
 
-Route::get('/home', 'HomeController@index')->name('home');
+
